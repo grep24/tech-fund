@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>避风港长持科技基金 - One Pager</title>
+    <style>
+        :root {
+            --primary-blue: #1C4E80; /* Safe Harbor Blue */
+            --secondary-blue: #E8EFF5;
+            --text-dark: #333333;
+            --text-grey: #666666;
+            --accent-gold: #D4AF37;
+            --border-color: #E0E0E0;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+            color: var(--text-dark);
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            font-size: 14px; /* Scaled for density */
+        }
+
+        .container {
+            width: 210mm; /* A4 width */
+            /* Removed fixed height to allow content to flow, user can print to PDF */
+            min-height: 297mm; 
+            margin: 0 auto; 
+            background: white;
+            padding: 30px 35px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            /* overflow: hidden; Removed to prevent cutting off content */
+        }
+
+        /* Header */
+        header {
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .logo-area {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text {
+            font-family: serif;
+            font-weight: bold;
+            font-size: 28px; /* Slightly smaller */
+            color: var(--primary-blue);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .fund-name {
+            font-size: 20px; /* Slightly smaller */
+            font-weight: bold;
+            margin-top: 5px;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .tagline {
+            text-align: right;
+            font-style: italic;
+            color: var(--text-grey);
+            font-size: 12px;
+            max-width: 55%;
+            line-height: 1.4;
+        }
+
+        /* Layout */
+        .main-content {
+            display: flex;
+            gap: 25px; /* Tighter gap */
+            flex: 1;
+        }
+
+        .col-left {
+            flex: 1.5; /* Slightly wider left column for text */
+        }
+
+        .col-right {
+            flex: 1;
+        }
+
+        /* Components */
+        h2 {
+            font-size: 15px;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            border-left: 4px solid var(--primary-blue);
+            padding-left: 8px;
+            margin-top: 18px; /* Compact */
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            line-height: 1;
+        }
+
+        h3 {
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+        }
+
+        p {
+            margin-bottom: 8px;
+            text-align: justify; /* Justify alignment */
+            font-size: 12px; /* Compact font */
+            line-height: 1.5;
+        }
+
+        .highlight-box {
+            background-color: var(--secondary-blue);
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .highlight-text {
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        /* Specific Sections */
+        .strategy-item, .principle-item {
+            margin-bottom: 12px;
+        }
+        
+        .strategy-title {
+            font-weight: bold;
+            color: var(--primary-blue);
+            display: block;
+            margin-bottom: 3px;
+            font-size: 12.5px;
+        }
+
+        ul {
+            padding-left: 15px;
+            margin: 0;
+        }
+        
+        li {
+            margin-bottom: 4px;
+            font-size: 12px;
+            text-align: justify;
+        }
+
+        /* Right Column specific */
+        .chart-placeholder {
+            width: 100%;
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .holdings-list {
+            border-top: 2px solid var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .holding-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .holding-row:last-child {
+            border-bottom: none;
+        }
+
+        .holding-ticker-compact { 
+            font-weight: bold; 
+            color: var(--text-dark); 
+            font-size: 12px;
+        }
+        .holding-weight-compact { 
+            font-size: 12px; 
+            font-weight: bold;
+            color: var(--primary-blue); 
+        }
+
+        .industry-item {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 6px;
+        }
+        .industry-name { font-weight: bold; font-size: 12px; color: var(--text-dark); }
+        .industry-eng { font-size: 10px; color: #999; text-transform: uppercase; margin-left: 5px; }
+        .industry-desc { font-size: 11px; color: var(--text-grey); margin-top: 2px; text-align: justify; }
+
+        .quote-box {
+            font-style: italic;
+            font-size: 11px;
+            color: #555;
+            border-left: 2px solid var(--accent-gold);
+            padding-left: 8px;
+            margin: 12px 0;
+            background: #fff;
+            text-align: justify;
+        }
+
+        .overview-table {
+            width: 100%;
+            font-size: 11px;
+            border-collapse: collapse;
+            margin-bottom: 15px; /* Added spacing */
+        }
+        .overview-table td {
+            padding: 4px 0;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        .overview-label { width: 70px; color: #666; }
+        .overview-value { color: #333; font-weight: 500; }
+
+        .team-section div {
+            margin-bottom: 10px;
+        }
+        .team-title { font-weight: bold; font-size: 12px; margin-bottom: 2px; }
+        .team-desc { font-size: 11px; color: #555; text-align: justify; line-height: 1.4; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo-area">
+            <div class="logo-text">SAFE HARBOR</div>
+            <div class="fund-name">避风港长持科技基金</div>
+        </div>
+        <div class="tagline">
+            "看得懂，买得对，拿得住，顺势复利。<br>
+            把科技投资当作买入并长期拥有优秀生意的一部分。"
+        </div>
+    </header>
+
+    <div class="main-content">
+        <!-- LEFT COLUMN -->
+        <div class="col-left">
+            
+            <div class="highlight-box">
+                <h3 style="margin-top:0; color: var(--primary-blue);">投资目标</h3>
+                <p>以长期价值增长为目标、全球布局的科技创新基金：</p>
+                <p>通过围绕少数深度研究的核心组合，专注投资将定义未来格局、持有具备结构性壁垒、并能够持续扩展护城河的优质企业。</p>
+                <p style="margin-bottom:0"><strong>追求</strong>成为少数长期投资者愿意穿越周期、持续信任的<strong>科技复利伙伴</strong>。</p>
+            </div>
+
+            <h2>投资哲学</h2>
+            <p>回顾历史，多数周期反复起伏，唯有<strong>科技发展</strong>呈现持续累积、不断进步的长期趋势。</p>
+            <p><strong>买股票就是买生意。</strong>股票投资并非押注价格，而是对企业未来长期盈利能力的判断。</p>
+            <p>真正伟大的回报，源自立足能力圈，顺应科技进步这一累积之势，具备结构性优势、并能够持续扩大护城河的科技公司。</p>
+
+            <h2>基金特点</h2>
+            <div class="strategy-item">
+                <span class="strategy-title">1. 顺应人类科技进步 ｜ 与长期趋势一起复利</span>
+                <p>经济不断增长，社会财富不断提高。科技趋势最像复利：一次投入，反复兑现；层层叠加，越跑越快。真正伟大的科技回报，并不来自对下一项技术突破的预测，而来自于长期持有那些已经建立起结构性优势、并将在未来持续扩大护城河的科技公司。</p>
+                <p>基金通过长期持有优质企业，与未来科技趋势共同复利：<strong>时间不是成本，而是收益的重要来源。</strong></p>
+            </div>
+            <div class="strategy-item">
+                <span class="strategy-title">2. 只投最好 ｜ 极高集中度配置</span>
+                <p>我们坚持“买对公司”，而非“投很多公司”。组合高度聚焦于少数核心企业，每一项投资均建立在高确定性判断之上：真实且持续的需求、清晰的规模效应、基本面优先于市场叙事，并具备壁垒、现金流与定价权，在行业中形成现实或潜在的赢家结构。</p>
+                <p>我们不为分散而分散：长期回报的差距，往往来自少数卓越企业的复利，而非平庸资产数量的堆叠。</p>
+            </div>
+            <div class="strategy-item">
+                <span class="strategy-title">3. 长期持有 ｜ 低换手率策略</span>
+                <p>投资的核心不在交易频率，而在判断正确性。设定两年锁定期，旨在让投资人与基金的时间维度对齐，降低短期情绪与流动性扰动对长期决策的影响。低换手率不是被动持有，而是对研究判断的确信与对企业价值兑现的耐心。</p>
+            </div>
+
+            <h2>投资原则</h2>
+            <div class="principle-item">
+                <p><strong>1. 科技投资，本质仍然是生意投资</strong><br>
+                无论科技如何演进，主题怎样变换，企业最终必须回到最基本的商业逻辑：<strong>客户是否愿意持续付费？规模扩大后单位成本是否持续下降？是否拥有长期定价权？</strong>技术只是手段，而非目的。只有能够将技术优势转化为稳定现金流和盈利能力的公司，才具备长期投资价值。</p>
+            </div>
+            <div class="principle-item">
+                <p><strong>2. 长期回报，源自垄断结构，而非技术叙事</strong><br>
+                历史反复证明：行业利润最终会集中到少数公司。<strong>网络效应、规模效应与高转换成本</strong>，决定了谁能够成为长期赢家。我们关注的并非下一个技术风口，而是哪些科技公司正在演化为所在领域中不可替代的供应者，并由此获得结构性的长期优势。</p>
+            </div>
+            <div class="principle-item">
+                <p><strong>3. 长期持有，是最重要的竞争优势</strong><br>
+                在高质量企业中，最大的风险往往不是买错，而是过早卖出。频繁交易往往源于对企业与生意理解的不充分。我们认为，<strong>高集中度、低换手率与长期视角</strong>本身就是一种竞争优势。通过减少无效交易与情绪干扰，让企业价值在时间中自然兑现，是获取长期复利的关键路径。</p>
+            </div>
+            <div class="principle-item">
+                <p><strong>4. 长期主线，算力能源与网络效应</strong><br>
+                科技发展并非抽象概念，其扩张始终受到物理约束。<strong>算力与能源密度</strong>，正在成为人工智能、自动化与生产效率提升这些推动人类未来发展趋势的核心瓶颈。</p>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="col-right">
+
+            <h2 style="margin-top: 0;">基金概况 (TBD)</h2>
+            <table class="overview-table">
+                <tr>
+                    <td class="overview-label">产品类型</td>
+                    <td class="overview-value">私募证券投资基金</td>
+                </tr>
+                <tr>
+                    <td class="overview-label">投资标的</td>
+                    <td class="overview-value">全球科技相关的权益类资产</td>
+                </tr>
+                <tr>
+                    <td class="overview-label">投资策略</td>
+                    <td class="overview-value">集中配置、长期持有、低换手</td>
+                </tr>
+                <tr>
+                    <td class="overview-label">组合结构</td>
+                    <td class="overview-value">核心持仓 3-5 只股票；<br>持仓合计通常 ≥70%</td>
+                </tr>
+                <tr>
+                    <td class="overview-label">投资期限</td>
+                    <td class="overview-value" style="color:var(--primary-blue)">24个月锁定期</td>
+                </tr>
+                <tr>
+                    <td class="overview-label">费用结构</td>
+                    <td class="overview-value">管理费 1.5%/年；业绩报酬 20%</td>
+                </tr>
+            </table>
+
+            <h2>主线行业</h2>
+            <div class="industry-item">
+                <div class="industry-name">算力与人工智能 <span class="industry-eng">Computation</span></div>
+                <div class="industry-desc">信息技术、半导体与算力基础设施，覆盖算力供给、效率提升及各行业渗透</div>
+            </div>
+            <div class="industry-item">
+                <div class="industry-name">网络效应 <span class="industry-eng">Network Effects</span></div>
+                <div class="industry-desc">平台型企业及具备网络外部性的科技/金融基础设施，用户与数据规模形成正反馈</div>
+            </div>
+            <div class="industry-item">
+                <div class="industry-name">能源密度 <span class="industry-eng">Energy Density</span></div>
+                <div class="industry-desc">能源效率提升、储能技术与生产效率改善，降低单位能量成本、推动产业升级</div>
+            </div>
+
+            <div class="quote-box">
+                我们将计算能力、网络效应与能源效率视为一个整体系统，重点投资那些能在算力效率、能源利用或相关基础设施层面持续突破物理约束，并由此形成长期优势的企业。
+            </div>
+
+            <h2>管理团队</h2>
+            <div class="team-section">
+                <div>
+                    <div class="team-title">科技先行 ｜ 以“真正懂科技”的人才为核心</div>
+                    <div class="team-desc">团队成员以数据科学、工程与数学背景为主，具备多学科交叉背景，能够从技术底层逻辑出发理解产业趋势与竞争格局，而非依赖金融叙事或短期市场情绪。</div>
+                </div>
+                <div>
+                    <div class="team-title">长期一线经验积累 ｜ 穿越周期与变革</div>
+                    <div class="team-desc">成员拥有 20年以上 科技创业与行业投资经验，亲历完整市场周期与多轮技术范式迁移，对“技术扩散速度、商业兑现节奏、资本周期波动”具备实战理解。</div>
+                </div>
+                <div>
+                    <div class="team-title">全球视角与风险意识 ｜ 在不确定环境中保持组合韧性</div>
+                    <div class="team-desc">持续追踪产业链与全球市场关键数据指标，通过差异化的风险识别与纪律化管理机制，提升持仓在不同宏观与行业情景下的可承受性与持续性。</div>
+                </div>
+            </div>
+            
+            <h2>组合收益表现</h2>
+            <div class="chart-placeholder" style="background:none; border:none; height:auto; padding:0; margin-bottom: 2px;">
+                <img src="chart.png" alt="组合收益表现" style="width:100%; height:auto; display:block;">
+            </div>
+            <div style="font-size: 8px; color: #aaa; text-align: right; margin-bottom: 15px; transform: scale(0.9); transform-origin: right top;">截止2025-12-24</div>
+            
+            <p style="font-size:12px; color:#666; margin-bottom:5px;">核心持仓股票:</p>
+            <div class="holdings-list">
+                <div class="holding-row">
+                    <span class="holding-ticker-compact">NVIDIA</span>
+                    <span class="holding-weight-compact">20%</span>
+                </div>
+                <div class="holding-row">
+                    <span class="holding-ticker-compact">Alphabet</span>
+                    <span class="holding-weight-compact">20%</span>
+                </div>
+                <div class="holding-row">
+                    <span class="holding-ticker-compact">Microsoft</span>
+                    <span class="holding-weight-compact">20%</span>
+                </div>
+                <div class="holding-row">
+                    <span class="holding-ticker-compact">Nu Holdings</span>
+                    <span class="holding-weight-compact">20%</span>
+                </div>
+                <div class="holding-row">
+                    <span class="holding-ticker-compact">Constellation Energy*</span>
+                    <span class="holding-weight-compact">20%</span>
+                </div>
+                <div style="font-size: 9px; color: #999; margin-top: 4px; transform: scale(0.9); transform-origin: left top;">
+                    * 2023年1月起，由现金持仓转配置
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
